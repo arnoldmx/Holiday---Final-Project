@@ -1,4 +1,25 @@
-﻿using System;
+﻿
+/*
+
+ **File Name: Index.aspx.cs
+
+* Name: Jackson Wiley, Max Arnold, Keegean McGorry
+* email:  wileyjn @mail.uc.edu, 
+*Assignment Number: Final Project
+*Due Date: 4 / 29 / 2025
+* Course #/Section:   Web Dev with .net 001
+* Semester / Year:   Spring 2025
+* Brief Description of the assignment:  Create a web page where we all collaborate through git hub 
+* and have a button for each of our problems we idependently solve from LeetCode.
+
+* Brief Description of what this module does. This module contains code that runs when our buttons are pressed
+* on the index. It links our individual problems to our individual cs files to run our code.
+* 
+* Citations: https://leetcode.com/problems/bus-routes/description/ , https://chatgpt.com, https://github.com/jwiley21/wileyjn_Assignment10, https://www.w3schools.com/cs/cs_arrays.php
+*Anything else that's relevant:
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -37,13 +58,35 @@ namespace Holiday___Final_Project
         protected void btnShow2_Click(object sender, EventArgs e)
         {
             panel2.Visible = true;
-            lblDesc2.Text = "Problem 2 description goes here...";
+            lblDesc2.Text =
+                "You are given an array of stops where each array is a new bus. "
+             +"Find the minimum number of buses needed to go "
+             +"from a source to target, or –1 if impossible."
+             + "Example 1: routes= [[1,2,7],[3,6,7]], source=1, target=6 "
+             + "Example 2: routes=[[7,12],[4,5,15],[6],[15,19],[9,12,13]], "
+             + "source=15, target=12 ";
         }
 
         protected void btnRun2_Click(object sender, EventArgs e)
         {
+            // ----- Example 1 -----
+            int[][] routes1 = { new[] { 1, 2, 7 }, new[] { 3, 6, 7 } };
+            int answer1 = Wiley.NumBusesToDestination(routes1, source: 1, target: 6);
 
-            lblOutput2.Text = "Result: [Placeholder]";
+            // ----- Example 2 -----
+            int[][] routes2 =
+            {
+        new[] { 7, 12 },
+        new[] { 4, 5, 15 },
+        new[] { 6 },
+        new[] { 15, 19 },
+        new[] { 9, 12, 13 }
+    };
+            int answer2 = Wiley.NumBusesToDestination(routes2, source: 15, target: 12);
+
+            lblOutput2.Text =
+                $"Example 1 result: {answer1}<br/>"
+              + $"Example 2 result: {answer2}";
         }
 
         // Problem 3 

@@ -1,4 +1,30 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Holiday___Final_Project.Index" %>
+﻿<!--
+    
+ ** File Name: Index.aspx
+
+* Name: Jackson Wiley, Max Arnold, Keegean McGorry
+* email:  wileyjn@mail.uc.edu, 
+* Assignment Number: Final Project
+* Due Date:   4/29/2025
+* Course #/Section:   Web Dev with .net 001
+* Semester/Year:   Spring 2025
+* Brief Description of the assignment:  Create a web page where we all collaborate through git hub 
+* and have a button for each of our problems we idependently solve from LeetCode.
+
+* Brief Description of what this module does. This module is the index for our project. it has each of our problems 
+    and will run the code on index.aspx.cs when clicked. This file is used for the formatting
+* 
+* Citations: 
+* Anything else that's relevant:
+
+    -->
+
+
+
+
+
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Holiday___Final_Project.Index" %>
 
 <!DOCTYPE html>
 
@@ -35,7 +61,7 @@
         <div class="col-md-4 mb-4">
             <div class="card text-center h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Problem 2</h5>
+                    <h5 class="card-title">Bus Problem</h5>
                     <asp:Button ID="btnShow2" runat="server" Text="View Problem" CssClass="btn btn-outline-primary" OnClick="btnShow2_Click" />
                     <asp:Panel ID="panel2" runat="server" Visible="false" CssClass="mt-3">
                         <asp:Label ID="lblDesc2" runat="server" Text=""></asp:Label><br />
