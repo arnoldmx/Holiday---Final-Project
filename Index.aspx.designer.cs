@@ -60,6 +60,15 @@ namespace Holiday___Final_Project
         protected global::System.Web.UI.WebControls.Button btnRun1;
 
         /// <summary>
+        /// btnClear1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear1;
+
+        /// <summary>
         /// lblOutput1 control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace Holiday___Final_Project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOutput1;
+
+        /// <summary>
+        /// lblCode1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblCode1;
 
         /// <summary>
         /// btnShow2 control.
@@ -105,6 +123,15 @@ namespace Holiday___Final_Project
         protected global::System.Web.UI.WebControls.Button btnRun2;
 
         /// <summary>
+        /// btnClear2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear2;
+
+        /// <summary>
         /// lblOutput2 control.
         /// </summary>
         /// <remarks>
@@ -112,6 +139,15 @@ namespace Holiday___Final_Project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOutput2;
+
+        /// <summary>
+        /// lblCode2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblCode2;
 
         /// <summary>
         /// btnShow3 control.
@@ -150,6 +186,15 @@ namespace Holiday___Final_Project
         protected global::System.Web.UI.WebControls.Button btnRun3;
 
         /// <summary>
+        /// btnClear3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear3;
+
+        /// <summary>
         /// lblOutput3 control.
         /// </summary>
         /// <remarks>
@@ -157,5 +202,14 @@ namespace Holiday___Final_Project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOutput3;
+
+        /// <summary>
+        /// lblCode3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblCode3;
     }
 }
