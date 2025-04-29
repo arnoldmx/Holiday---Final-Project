@@ -91,25 +91,94 @@ public int MaxCoins(int[] nums)
         }
 
         // Problem 2
+
+        // ---------- Problem 2 ----------
         protected void btnShow2_Click(object sender, EventArgs e)
         {
             panel2.Visible = true;
-            lblDesc2.Text = "";
+
+            // Multi-line description with HTML <br /> breaks
+            lblDesc2.Text = string.Join(Environment.NewLine,
+                "You are given an array of stop with each array being a diffrent set of stops for a diffrent bus.",
+                "Starting at stop source and ending at target, return the minimum number of buses needed",
+                "to reach target, or –1 if it is impossible.",
+                "",
+                "Example 1:",
+                "routes = [[1,2,7],[3,6,7]], source = 1, target = 6",
+                "Example 2:",
+                "routes = [[7,12],[4,5,15],[6],[15,19],[9,12,13]], source = 15, target = 12"
+            ).Replace(Environment.NewLine, "<br />");
         }
 
         protected void btnRun2_Click(object sender, EventArgs e)
         {
-            lblOutput2.Text = "Result: [Placeholder]";
-            lblCode2.Text = "<pre class='bg-dark text-white p-3 rounded' style='overflow-x: auto;'><code>// Problem 2 code</code></pre>";
+            // ---------- Example 1 ----------
+            int[][] routes1 = { new[] { 1, 2, 7 }, new[] { 3, 6, 7 } };
+            int ans1 = Wiley.NumBusesToDestination(routes1, 1, 6);
+
+            // ---------- Example 2 ----------
+            int[][] routes2 =
+            {
+        new[] {  7, 12 },
+        new[] {  4,  5, 15 },
+        new[] {  6 },
+        new[] { 15, 19 },
+        new[] {  9, 12, 13 }
+    };
+            int ans2 = Wiley.NumBusesToDestination(routes2, 15, 12);
+
+            lblOutput2.Text = $"Example 1 result: {ans1}<br />Example 2 result: {ans2}";
+
+            // Show solver source 
+            lblCode2.Text =
+        @"<pre class='bg-dark text-white p-3 rounded' style='overflow-x:auto;'><code>
+public static int NumBusesToDestination(int[][] routes, int source, int target)
+{
+    if (source == target) return 0;
+    var stopToBuses = new Dictionary&lt;int, List&lt;int&gt;&gt;();
+    for (int bus = 0; bus &lt; routes.Length; bus++)
+        foreach (int stop in routes[bus])
+            (stopToBuses.TryGetValue(stop, out var list) ? list : (stopToBuses[stop] = new List&lt;int&gt;()))
+            .Add(bus);
+
+    var visitedStops = new HashSet&lt;int&gt; { source };
+    var visitedBuses = new HashSet&lt;int&gt;();
+    var q = new Queue&lt;int&gt;();
+    q.Enqueue(source);
+    int busesTaken = 0;
+
+    while (q.Count &gt; 0)
+    {
+        int level = q.Count;
+        busesTaken++;
+        for (int i = 0; i &lt; level; i++)
+        {
+            int cur = q.Dequeue();
+            if (!stopToBuses.TryGetValue(cur, out var buses)) continue;
+            foreach (int bus in buses)
+            {
+                if (!visitedBuses.Add(bus)) continue;
+                foreach (int next in routes[bus])
+                {
+                    if (next == target) return busesTaken;
+                    if (visitedStops.Add(next)) q.Enqueue(next);
+                }
+            }
+        }
+    }
+    return -1;
+}
+</code></pre>";
         }
 
         protected void btnClear2_Click(object sender, EventArgs e)
         {
             panel2.Visible = false;
-            lblDesc2.Text = "";
-            lblOutput2.Text = "";
-            lblCode2.Text = "";
+            lblDesc2.Text = string.Empty;
+            lblOutput2.Text = string.Empty;
+            lblCode2.Text = string.Empty;
         }
+
 
         // Problem 3
         protected void btnShow3_Click(object sender, EventArgs e)
