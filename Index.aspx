@@ -57,7 +57,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card text-center h-100 shadow-lg p-3 mb-5 bg-white rounded">
                         <div class="card-body">
-                            <h5 class="card-title">Problem 2</h5>
+                            <h5 class="card-title">Solution #815 - Bus Routes</h5>
                             <asp:Button ID="btnShow2" runat="server" Text="View Problem" CssClass="btn btn-outline-primary mb-2" OnClick="btnShow2_Click" />
                             <asp:Panel ID="panel2" runat="server" Visible="false" CssClass="mt-3">
                                 <asp:Label ID="lblDesc2" runat="server" Text=""></asp:Label><br />

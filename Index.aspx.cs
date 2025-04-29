@@ -53,33 +53,7 @@ namespace Holiday___Final_Project
             int result = solver.MaxCoins(testCase);
             lblOutput1.Text = "Result: " + result;
 
-            lblCode1.Text = @"<pre class='bg-dark text-white p-3 rounded' style='overflow-x: auto;'><code>
-public int MaxCoins(int[] nums)
-{
-    int n = nums.Length;
-    int[] newNums = new int[n + 2];
-    newNums[0] = newNums[n + 1] = 1;
-    for (int i = 0; i &lt; n; i++) newNums[i + 1] = nums[i];
-
-    int[,] dp = new int[n + 2, n + 2];
-
-    for (int len = 1; len &lt;= n; len++)
-    {
-        for (int left = 1; left &lt;= n - len + 1; left++)
-        {
-            int right = left + len - 1;
-            for (int i = left; i &lt;= right; i++)
-            {
-                dp[left, right] = Math.Max(dp[left, right],
-                    newNums[left - 1] * newNums[i] * newNums[right + 1] +
-                    dp[left, i - 1] + dp[i + 1, right]);
-            }
-        }
-    }
-
-    return dp[1, n];
-}
-</code></pre>";
+            lblCode1.Text = "";
         }
 
         protected void btnClear1_Click(object sender, EventArgs e)
@@ -130,45 +104,8 @@ public int MaxCoins(int[] nums)
             lblOutput2.Text = $"Example 1 result: {ans1}<br />Example 2 result: {ans2}";
 
             // Show solver source 
-            lblCode2.Text =
-        @"<pre class='bg-dark text-white p-3 rounded' style='overflow-x:auto;'><code>
-public static int NumBusesToDestination(int[][] routes, int source, int target)
-{
-    if (source == target) return 0;
-    var stopToBuses = new Dictionary&lt;int, List&lt;int&gt;&gt;();
-    for (int bus = 0; bus &lt; routes.Length; bus++)
-        foreach (int stop in routes[bus])
-            (stopToBuses.TryGetValue(stop, out var list) ? list : (stopToBuses[stop] = new List&lt;int&gt;()))
-            .Add(bus);
-
-    var visitedStops = new HashSet&lt;int&gt; { source };
-    var visitedBuses = new HashSet&lt;int&gt;();
-    var q = new Queue&lt;int&gt;();
-    q.Enqueue(source);
-    int busesTaken = 0;
-
-    while (q.Count &gt; 0)
-    {
-        int level = q.Count;
-        busesTaken++;
-        for (int i = 0; i &lt; level; i++)
-        {
-            int cur = q.Dequeue();
-            if (!stopToBuses.TryGetValue(cur, out var buses)) continue;
-            foreach (int bus in buses)
-            {
-                if (!visitedBuses.Add(bus)) continue;
-                foreach (int next in routes[bus])
-                {
-                    if (next == target) return busesTaken;
-                    if (visitedStops.Add(next)) q.Enqueue(next);
-                }
-            }
-        }
-    }
-    return -1;
-}
-</code></pre>";
+            lblCode2.Text = "";
+        
         }
 
         protected void btnClear2_Click(object sender, EventArgs e)
@@ -195,52 +132,7 @@ public static int NumBusesToDestination(int[][] routes, int source, int target)
             double result = solver.FindMedianSortedArrays(nums1, nums2);
             lblOutput3.Text = "Result: " + result;
 
-            lblCode3.Text = @"<pre class='bg-dark text-white p-3 rounded' style='overflow-x: auto;'><code>
-public class Arnold
-{
-    public class Solution
-    {
-        public double FindMedianSortedArrays(int[] nums1, int[] nums2)
-        {
-            if (nums1.Length > nums2.Length)
-                return FindMedianSortedArrays(nums2, nums1);
-
-            int m = nums1.Length;
-            int n = nums2.Length;
-            int low = 0, high = m;
-
-            while (low <= high)
-            {
-                int partitionX = (low + high) / 2;
-                int partitionY = (m + n + 1) / 2 - partitionX;
-
-                int maxX = (partitionX == 0) ? int.MinValue : nums1[partitionX - 1];
-                int minX = (partitionX == m) ? int.MaxValue : nums1[partitionX];
-                int maxY = (partitionY == 0) ? int.MinValue : nums2[partitionY - 1];
-                int minY = (partitionY == n) ? int.MaxValue : nums2[partitionY];
-
-                if (maxX <= minY && maxY <= minX)
-                {
-                    if ((m + n) % 2 == 0)
-                        return (Math.Max(maxX, maxY) + Math.Min(minX, minY)) / 2.0;
-                    else
-                        return Math.Max(maxX, maxY);
-                }
-                else if (maxX > minY)
-                {
-                    high = partitionX - 1;
-                }
-                else
-                {
-                    low = partitionX + 1;
-                }
-            }
-
-            throw new ArgumentException(""Input arrays are not sorted."");
-        }
-    }
-}
-</code></pre>";
+            lblCode3.Text = "";
         }
 
         protected void btnClear3_Click(object sender, EventArgs e)
