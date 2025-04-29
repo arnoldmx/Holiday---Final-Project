@@ -1,4 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Holiday___Final_Project.Index" %>
+﻿<!--
+    
+ ** File Name: Index.aspx
+* Name: Jackson Wiley, Max Arnold, Keegean McGorry
+* email:  wileyjn@mail.uc.edu, arnoldmx@mail.uc.edu
+* Assignment Number: Final Project
+* Due Date:   4/29/2025
+* Course #/Section: IS3050001  Web Dev with .net 001
+* Semester/Year:   Spring 2025
+* Brief Description of the assignment:  Create a web page where we all collaborate through git hub 
+* and have a button for each of our problems we idependently solve from LeetCode.
+* Brief Description of what this module does. This module is the index for our project. it has each of our problems 
+    and will run the code on index.aspx.cs when clicked. This file is used for the formatting
+* 
+* Citations: 
+* Anything else that's relevant:
+    -->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Holiday___Final_Project.Index" %>
 
 <!DOCTYPE html>
 
@@ -22,7 +40,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card text-center h-100 shadow-lg p-3 mb-5 bg-white rounded">
                         <div class="card-body">
-                            <h5 class="card-title">Burst Balloons</h5>
+                            <h5 class="card-title">Solution #312 - Burst Balloons</h5>
                             <asp:Button ID="btnShow1" runat="server" Text="View Problem" CssClass="btn btn-outline-primary mb-2" OnClick="btnShow1_Click" />
                             <asp:Panel ID="panel1" runat="server" Visible="false" CssClass="mt-3">
                                 <asp:Label ID="lblDesc1" runat="server" Text=""></asp:Label><br />
@@ -56,7 +74,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card text-center h-100 shadow-lg p-3 mb-5 bg-white rounded">
                         <div class="card-body">
-                            <h5 class="card-title">Problem 3</h5>
+                            <h5 class="card-title">Solution #4 - Median of Two Sorted Arrays</h5>
                             <asp:Button ID="btnShow3" runat="server" Text="View Problem" CssClass="btn btn-outline-primary mb-2" OnClick="btnShow3_Click" />
                             <asp:Panel ID="panel3" runat="server" Visible="false" CssClass="mt-3">
                                 <asp:Label ID="lblDesc3" runat="server" Text=""></asp:Label><br />

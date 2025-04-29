@@ -1,4 +1,22 @@
-﻿using System;
+﻿
+/*
+ **File Name: Index.aspx.cs
+* Name: Jackson Wiley, Max Arnold, Keegean McGorry
+* email:  wileyjn @mail.uc.edu, 
+*Assignment Number: Final Project
+*Due Date: 4 / 29 / 2025
+* Course #/Section:   Web Dev with .net 001
+* Semester / Year:   Spring 2025
+* Brief Description of the assignment:  Create a web page where we all collaborate through git hub 
+* and have a button for each of our problems we idependently solve from LeetCode.
+* Brief Description of what this module does. This module contains code that runs when our buttons are pressed
+* on the index. It links our individual problems to our individual cs files to run our code.
+* 
+* Citations: https://leetcode.com/problems/bus-routes/description/ , https://chatgpt.com, https://github.com/jwiley21/wileyjn_Assignment10, https://www.w3schools.com/cs/cs_arrays.php
+*Anything else that's relevant:
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -76,7 +94,7 @@ public int MaxCoins(int[] nums)
         protected void btnShow2_Click(object sender, EventArgs e)
         {
             panel2.Visible = true;
-            lblDesc2.Text = "Problem 2";
+            lblDesc2.Text = "";
         }
 
         protected void btnRun2_Click(object sender, EventArgs e)
@@ -97,13 +115,63 @@ public int MaxCoins(int[] nums)
         protected void btnShow3_Click(object sender, EventArgs e)
         {
             panel3.Visible = true;
-            lblDesc3.Text = "Problem 3";
+            lblDesc3.Text = "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays. Test Case nums1 = [1, 3], nums2 = [2]:";
         }
 
         protected void btnRun3_Click(object sender, EventArgs e)
         {
-            lblOutput3.Text = "Result: [Placeholder]";
-            lblCode3.Text = "<pre class='bg-dark text-white p-3 rounded' style='overflow-x: auto;'><code>// Problem 3 code</code></pre>";
+            Arnold.Solution solver = new Arnold.Solution();
+            int[] nums1 = new int[] { 1, 3 };
+            int[] nums2 = new int[] { 2 };
+            double result = solver.FindMedianSortedArrays(nums1, nums2);
+            lblOutput3.Text = "Result: " + result;
+
+            lblCode3.Text = @"<pre class='bg-dark text-white p-3 rounded' style='overflow-x: auto;'><code>
+public class Arnold
+{
+    public class Solution
+    {
+        public double FindMedianSortedArrays(int[] nums1, int[] nums2)
+        {
+            if (nums1.Length > nums2.Length)
+                return FindMedianSortedArrays(nums2, nums1);
+
+            int m = nums1.Length;
+            int n = nums2.Length;
+            int low = 0, high = m;
+
+            while (low <= high)
+            {
+                int partitionX = (low + high) / 2;
+                int partitionY = (m + n + 1) / 2 - partitionX;
+
+                int maxX = (partitionX == 0) ? int.MinValue : nums1[partitionX - 1];
+                int minX = (partitionX == m) ? int.MaxValue : nums1[partitionX];
+                int maxY = (partitionY == 0) ? int.MinValue : nums2[partitionY - 1];
+                int minY = (partitionY == n) ? int.MaxValue : nums2[partitionY];
+
+                if (maxX <= minY && maxY <= minX)
+                {
+                    if ((m + n) % 2 == 0)
+                        return (Math.Max(maxX, maxY) + Math.Min(minX, minY)) / 2.0;
+                    else
+                        return Math.Max(maxX, maxY);
+                }
+                else if (maxX > minY)
+                {
+                    high = partitionX - 1;
+                }
+                else
+                {
+                    low = partitionX + 1;
+                }
+            }
+
+            throw new ArgumentException(""Input arrays are not sorted."");
+        }
+    }
+}
+</code></pre>";
         }
 
         protected void btnClear3_Click(object sender, EventArgs e)
